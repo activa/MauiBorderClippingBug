@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BorderClippingBug.MainPage">
+    <FlexLayout x:Name="layout" Wrap="Wrap" AlignItems="Start" AlignContent="Start" JustifyContent="Center">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <ContentView Padding="2">
+                    <Border Grid.Row="0" Stroke="Black" StrokeThickness="{Binding .}" StrokeShape="RoundRectangle 32,0,0,32" WidthRequest="160" HeightRequest="160" x:Name="Border">
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" BackgroundColor="LightGreen" Padding="0" RowSpacing="0" ColumnSpacing="0">
+                            <BoxView Background="Red" WidthRequest="32" HeightRequest="32" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Start"/>
+                            <BoxView Background="Red" WidthRequest="32" HeightRequest="32" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"/>
+                            <BoxView Background="Red" WidthRequest="32" HeightRequest="32" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End"/>
+                            <BoxView Background="Red" WidthRequest="32" HeightRequest="32" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End"/>
+                            <Label HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="{Binding .}" FontSize="20"/>
+                        </Grid>
+                    </Border>
+                </ContentView>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+
+    </FlexLayout>
+
+</ContentPage>
